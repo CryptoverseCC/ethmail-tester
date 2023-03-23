@@ -1,8 +1,9 @@
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '*/5 * * * *'
 
 env:
+  CARGO_TERM_COLOR: always
   ETHMAIL_TESTER_FROM: "xunkulapchvatal@ethmail.cc"
   ETHMAIL_TESTER_TO: "grzegorz.kapkowski@gmail.com"
   ETHMAIL_TESTER_USERNAME: "0x6Be450972b30891B16c8588DcBc10c8c2aEf04da"
@@ -11,5 +12,6 @@ jobs:
   test_schedule:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Run Tests
         run: cargo run --verbose
