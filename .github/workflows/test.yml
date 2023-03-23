@@ -1,0 +1,15 @@
+on:
+  schedule:
+    - cron: '0 * * * *'
+
+env:
+  ETHMAIL_TESTER_FROM: "xunkulapchvatal@ethmail.cc"
+  ETHMAIL_TESTER_TO: "grzegorz.kapkowski@gmail.com"
+  ETHMAIL_TESTER_USERNAME: "0x6Be450972b30891B16c8588DcBc10c8c2aEf04da"
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Tests
+        run: cargo run --verbose
